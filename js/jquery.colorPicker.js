@@ -96,6 +96,11 @@
                 }
             });
 
+            newHexField.bind("blur", function (event) {
+                var hexColor = $.fn.colorPicker.toHex($(this).val());
+                $.fn.colorPicker.changeColor(hexColor ? hexColor : element.val());
+            });
+
             newHexField.bind("keyup", function (event) {
               var hexColor = $.fn.colorPicker.toHex($(event.target).val());
               $.fn.colorPicker.previewColor(hexColor ? hexColor : element.val());
